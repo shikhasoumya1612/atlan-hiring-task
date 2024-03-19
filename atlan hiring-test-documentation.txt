@@ -1,0 +1,32 @@
+Pages
+
+1. Explore page - different llm models. Search by name, by description, filter, different views - grid, list, card
+2. Model detail page - image, description, try out, use cases, snippet of code, example
+3. Add model
+4. Try out - chat || image add
+
+------------------------------------------------------------------------------------------------------------------
+
+Model 
+
+0. id
+1. model_name
+2. model_description
+3. provider_name
+4. provider_description
+5. code_snippet
+6. usecases
+7. examples
+8. model_images
+9. provider_images
+10. try_out_flag
+11. 
+
+IMP - model_implementation - function for trying out models (ChatGPT; Gemini)
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Color scheme
+
+                    

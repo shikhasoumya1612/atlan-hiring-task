@@ -1,0 +1,36 @@
+.example_title {
+  text-decoration: underline;
+  text-underline-offset: 9.5px;
+}
+.model-image {
+  text-align: center;
+}
+
+.model-image img {
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .model-image img {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .model-image img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .model-image img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .model-image img {
+    width: 150px;
+  }
+}
