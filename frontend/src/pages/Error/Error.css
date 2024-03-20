@@ -1,0 +1,23 @@
+@media screen and (min-width: 1200px) {
+  .error img {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .error img {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .error img {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .error img {
+    width: 85%;
+  }
+}

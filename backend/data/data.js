@@ -1,5 +1,6 @@
 const models = [
   {
+    tryout: true,
     id: 1,
     model_image:
       "https://duet-cdn.vox-cdn.com/thumbor/0x0:1820x1213/2400x1600/filters:focal(910x607:911x608):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24247717/lp_logo_3.0.jpg",
@@ -80,6 +81,7 @@ generateText(prompt)
   },
 
   {
+    tryout: false,
     id: 2,
     model_image:
       "https://assets-global.website-files.com/60fd4503684b46390cc0d337/63df822cc6567a794443eba1_Studio-Blog-AnnouncingJ1.png",
@@ -167,6 +169,7 @@ generateText(prompt)
   },
 
   {
+    tryout: true,
     id: 3,
     model_image:
       "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SS.width-1300.jpg",
@@ -200,7 +203,9 @@ generateText(prompt)
         description:
           "Gemini is a powerful brainstorming partner. Its grasp of diverse information allows it to fuel creative exploration in exciting ways. Its ability to analyze vast datasets lets it generate creative text formats that are not only original but informed by the knowledge it possesses. Gemini can be a springboard for creative leaps, adding a unique spark to your artistic endeavors.",
         input: "Display a beautiful picture of bouquet of flowers",
-        output: <img src="Gemini_Generated_Image.jpg"></img>,
+        output: "Here is a beautiful image of flowers : ",
+        output_img:
+          "https://images.unsplash.com/photo-1469317835793-6d02c2392778?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
         title: "Vision",
@@ -258,6 +263,7 @@ generateText(prompt)
       "Google AI, a research division of Google dedicated to groundbreaking advancements in artificial intelligence, is the provider behind the powerful LLM Gemini.  Gemini exemplifies Google AI's commitment to pushing the boundaries. It boasts state-of-the-art performance across various LLM tasks and the ability to process information from various sources like text, code, and even video. This focus on versatility positions Gemini as a potential game-changer in research, creative content generation, and machine translation, all while Google AI explores ways to make it accessible through their cloud platform or APIs. ",
   },
   {
+    tryout: false,
     id: 4,
     model_image:
       "https://miro.medium.com/v2/resize:fit:828/format:webp/0*xJlbrkBSlytC6fp7.jpg",
@@ -374,12 +380,13 @@ generateText(prompt)
       "Megatron-Turing NLG was a joint effort by tech giants Microsoft Research, renowned for their AI research and software development, and NVIDIA, a leader in powerful GPUs crucial for training massive AI models. Microsoft likely designed the model architecture, selected training data, and evaluated its performance, while NVIDIA provided the high-performance computing muscle with GPUs to train Megatron-Turing NLG's massive parameter count. This collaboration between software expertise and cutting-edge hardware pushed the boundaries of LLM capabilities at the time. ",
   },
   {
+    tryout: false,
     id: 5,
     model_image:
       "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202304/53590-107681-bard-xl_0-sixteen_nine.jpg?size=948:533",
     model_name: "BARD",
     model_description:
-      "The Megatron-Turing NLG model, a collaboration between Microsoft and NVIDIA, boasted a colossal 530 billion parameters, making it a powerhouse for its time. Not only did it excel at understanding factual information, but it truly shined in generating creative text formats like poems and code. This versatility, fueled by DeepSpeed and Megatron training frameworks on the Selene supercomputer, paved the way for even larger models and laid the groundwork for Google AI's Gemini, which explores multimodal processing beyond just text. Megatron-Turing NLG stood as a significant milestone in the evolution of LLMs. Its sheer size and impressive text generation capabilities paved the way for further advancements in the field.",
+      "It’s a really exciting time to be working on these technologies as we translate deep research and breakthroughs into products that truly help people. That’s the journey we’ve been on with large language models. Two years ago we unveiled next-generation language and conversation capabilities powered by our Language Model for Dialogue Applications (or LaMDA for short). We’ve been working on an experimental conversational AI service, powered by LaMDA, that we’re calling Bard. And today, we’re taking another step forward by opening it up to trusted testers ahead of making it more widely available to the public in the coming weeks.",
 
     examples: [
       {
@@ -413,41 +420,37 @@ generateText(prompt)
       },
     ],
 
-    code_snippet: `const apiKey = "YOUR_API_KEY"; // Replace "YOUR_API_KEY" with your actual API key
-    const endpointUrl = "ENDPOINT_URL"; // Replace "ENDPOINT_URL" with the actual endpoint URL of the BARD API
-    
-    async function fetchData() {
-      try {
-        const response = await fetch(endpointUrl, {
-          method: "GET", // Adjust the HTTP method (e.g., GET, POST, PUT) according to the API documentation
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": \`Bearer \${apiKey}\`
-          },
-          // Add other request parameters here, such as body for POST requests
-        });
-        
-        if (!response.ok) {
-          throw new Error(\`HTTP error! Status: \${response.status}\`);
-        }
-        
-        const data = await response.json();
-        console.log("Received data:", data);
-        
-        // Process the received data as needed
-        
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-    
-    fetchData();
+    code_snippet: `const { BardAPI } = require('bard-api-node');
+
+async function testAssistant() {
+  try {
+    // Initialize BardAPI object
+    const bard = new BardAPI();
+
+    // Set your API key (replace with your actual key)
+    const apiKey = 'YOUR_API_KEY';
+
+    // Initialize chat with API key
+    await bard.initilizeChat(apiKey);
+
+    // Send a query to Bard
+    const response = await bard.getBardResponse("Hello Bard! What's up?");
+    console.log(response);
+
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+testAssistant();
+
     `,
     provider_name: "Google AI",
     provider_description:
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    tryout: false,
     id: 6,
     model_image:
       "https://logowik.com/content/uploads/images/bloom-new4716.logowik.com.webp",
@@ -491,45 +494,24 @@ generateText(prompt)
         input: "Write a short haiku about nature in Japanese.",
         output: `青葉(あおば)  茂(しげ)り  風(かぜ)薫(かお)る  (Aoba shigeri kaze kaoru) - Green leaves flourish, the wind carries a sweet scent.`,
       },
-      {
-        title: "Vision",
-        description:
-          "BLOOM envisions a world where language barriers crumble and the power of creation transcends borders.  This multilingual maestro aspires to be a bridge, allowing seamless information access and communication across a staggering number of languages.  Beyond translation, BLOOM dreams of fostering a future rich in creative expression, where code and natural languages intertwine to birth innovative art forms and stories. ",
-        input:
-          "Translate the sentence `The weather is beautiful today` into Spanish.",
-        output: `El tiempo está hermoso hoy.`,
-      },
     ],
 
-    code_snippet: `const apiKey = "YOUR_API_KEY"; // Replace "YOUR_API_KEY" with your actual API key
-    const endpointUrl = "ENDPOINT_URL"; // Replace "ENDPOINT_URL" with the actual endpoint URL of the BLOOM API
-    
-    async function fetchData() {
-      try {
-        const response = await fetch(endpointUrl, {
-          method: "GET", // Adjust the HTTP method (e.g., GET, POST, PUT) according to the API documentation
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": \`Bearer \${apiKey}\`
-          },
-          // Add other request parameters here, such as body for POST requests
-        });
-        
-        if (!response.ok) {
-          throw new Error(\`HTTP error! Status: \${response.status}\`);
-        }
-        
-        const data = await response.json();
-        console.log("Received data:", data);
-        
-        // Process the received data as needed
-        
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-    
-    fetchData();
+    code_snippet: `from transformers import pipeline
+
+# Initialize pipeline for text generation
+generator = pipeline("text-generation", model="bigscience/bloom")
+
+# Define your prompt
+prompt = "Write a function to calculate the area of a circle."
+
+# Generate text using Bloom
+response = generator(prompt, max_length=100, num_return_sequences=1)
+
+# Access the generated code from the response
+generated_code = response[0]['generated_text']
+
+print(generated_code)
+
     
     `,
     provider_name: "Meta AI, BigScience Initiative, Open-source Nature ",
@@ -537,6 +519,7 @@ generateText(prompt)
       "BLOOM's development wasn't driven by a single entity, but rather a collaborative effort under BigScience. Meta AI played a major role, but it's important to recognize the broader research community's contribution to this open-source LLM. Meta AI itself is a prominent research lab dedicated to advancements in AI. They contribute to various LLM projects like BLOOM, showcasing their commitment to pushing the boundaries of language understanding and generation",
   },
   {
+    tryout: false,
     id: 7,
     model_image:
       "https://deci.ai/wp-content/uploads/2023/10/deci-model-card-t5-featured-2-1024x576.jpg",
@@ -571,44 +554,36 @@ generateText(prompt)
       },
     ],
 
-    code_snippet: `const apiKey = "YOUR_API_KEY"; // Replace "YOUR_API_KEY" with your actual API key
-    const endpointUrl = "ENDPOINT_URL"; // Replace "ENDPOINT_URL" with the actual endpoint URL of the T5 API
-    
-    async function fetchData() {
-      try {
-        const response = await fetch(endpointUrl, {
-          method: "POST", // Adjust the HTTP method (e.g., GET, POST, PUT) according to the API documentation
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": \`Bearer \${apiKey}\`
-          },
-          body: JSON.stringify({
-            // Add request parameters here according to the API documentation
-          })
-        });
-        
-        if (!response.ok) {
-          throw new Error(\`HTTP error! Status: \${response.status}\`);
-        }
-        
-        const data = await response.json();
-        console.log("Received data:", data);
-        
-        // Process the received data as needed
-        
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-    
-    fetchData();
-    
+    code_snippet: `from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+# Load tokenizer and pre-trained model
+tokenizer = T5Tokenizer.from_pretrained("google/t5-small")
+model = T5ForConditionalGeneration.from_pretrained("google/t5-small")
+
+# Prepare your code generation dataset (input-output pairs)
+# This could involve text descriptions and corresponding code snippets
+
+# Define training function (refer to Transformers documentation for details)
+# This function will train the model on your dataset
+
+# Train the model
+
+# Generate code using the fine-tuned model
+input_prompt = "Write a Python function to reverse a string."
+generated_code = model.generate(
+    input_ids=tokenizer.encode(input_prompt, return_tensors="pt"),
+    max_length=100
+)
+
+print(tokenizer.decode(generated_code[0], skip_special_tokens=True))
+
     `,
     provider_name: "Google AI",
     provider_description:
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    tryout: false,
     id: 8,
     model_image:
       "https://images.news18.com/ibnlive/uploads/2023/03/baidu-bot-16790420613x2.jpg",
@@ -643,48 +618,46 @@ generateText(prompt)
       },
     ],
 
-    code_snippet: `const apiKey = "YOUR_API_KEY"; // Replace "YOUR_API_KEY" with your actual API key
-    const endpointUrl = "ENDPOINT_URL"; // Replace "ENDPOINT_URL" with the actual endpoint URL of the ERNIE API
-    
-    async function fetchData() {
-      try {
-        const response = await fetch(endpointUrl, {
-          method: "POST", // Adjust the HTTP method (e.g., GET, POST, PUT) according to the API documentation
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": \`Bearer \${apiKey}\`
-          },
-          body: JSON.stringify({
-            // Add request parameters here according to the API documentation
-          })
-        });
-        
-        if (!response.ok) {
-          throw new Error(\`HTTP error! Status: \${response.status}\`);
-        }
-        
-        const data = await response.json();
-        console.log("Received data:", data);
-        
-        // Process the received data as needed
-        
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-    
-    fetchData();
-    
-    
+    code_snippet: `# (Assuming you have a Baidu AI account and API key)
+
+import requests
+
+# Replace with your actual API key
+api_key = "YOUR_API_KEY"
+
+# Define the API endpoint (details from Baidu's documentation)
+api_url = "https://api.baidu.com/ernie/v1/chat"
+
+# Example user query
+user_query = "What is the weather like today?"
+
+# Prepare request parameters
+data = {
+    "access_token": api_key,
+    "query": user_query
+}
+
+# Send request to Baidu ERNIE Bot API
+response = requests.post(api_url, json=data)
+
+if response.status_code == 200:
+    # Parse the response (refer to Baidu's documentation for structure)
+    response_data = response.json()
+    bot_response = response_data["answer"]
+    print(f"ERNIE Bot response: {bot_response}")
+else:
+    print(f"Error: {response.status_code}")
+
     `,
     provider_name: "Baidu",
     provider_description:
       " Baidu is the leading internet search engine in China, controlling a vast majority of the search market. It offers various other internet services like cloud computing, online maps, and music streaming. Baidu tailors its services and products to the specific needs of the Chinese market, making them highly relevant to their user base.",
   },
   {
+    tryout: false,
     id: 9,
     model_image:
-      "https://bebtexas.com/wp-content/uploads/2019/02/FacebookAIResearchLogo304.jpg",
+      "https://bsmedia.business-standard.com/_media/bs/img/article/2023-03/28/full/1679999027-6706.jpg?im=FeatureCrop,size=(826,465)",
     model_name: "RoBERTa",
     model_description:
       "A robustly optimized method for pretraining natural language processing (NLP) systems that improves on Bidirectional Encoder Representations from Transformers, or BERT, the self-supervised method released by Google in 2018. BERT is a revolutionary technique that achieved state-of-the-art results on a range of NLP tasks while relying on unannotated text drawn from the web, as opposed to a language corpus that’s been labeled specifically for a given task.  ",
@@ -754,6 +727,7 @@ generateText(prompt)
       "Facebook AI is a powerhouse in the AI world.  They delve into fundamental AI research, from language understanding to computer vision.  This translates into real-world applications like better image recognition on Facebook and the development of powerful language models.  While navigating privacy concerns and bias, Facebook AI strives to push the boundaries of AI for both innovation and social good.",
   },
   {
+    tryout: false,
     id: 10,
     model_image:
       "https://www.borealisai.com/wp-content/uploads/2019/07/blog_xlnet.png?resize=1536,864",
@@ -838,3 +812,5 @@ fetchXLNetResponse(userInput)
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications..",
   },
 ];
+
+module.exports = models;
