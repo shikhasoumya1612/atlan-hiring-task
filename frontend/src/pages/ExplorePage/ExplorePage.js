@@ -121,7 +121,12 @@ const ExplorePage = ({ models }) => {
                     </td>
 
                     <td className="py-3 text-small">
-                      <a href={model.redirect_link}>Go to Site</a>
+                      <a
+                        href={model.redirect_link}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Go to Site
+                      </a>
                     </td>
                   </tr>
                 ))}
