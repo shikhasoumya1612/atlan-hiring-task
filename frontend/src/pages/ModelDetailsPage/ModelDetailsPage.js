@@ -137,20 +137,30 @@ const ModelDetailsPage = () => {
               </div>
 
               <div className="row ms-md-3 ms-sm-1">
-                <div className="col-md-6">
-                  <p className="text-medium pt-3 text-bold">Code Snippet</p>
-                  <div className="pt-3 ">
-                    <CodeComponent code={model?.code_snippet} />
-                  </div>
-                </div>
+                {model?.code_snippet && (
+                  <>
+                    <div className="col-md-6">
+                      <p className="text-medium pt-3 text-bold">Code Snippet</p>
+                      <div className="pt-3 ">
+                        <CodeComponent code={model?.code_snippet} />
+                      </div>
+                    </div>
 
-                <div className="col-md-1"></div>
+                    <div className="col-md-1"></div>
+                  </>
+                )}
                 <div className="col-md-5">
                   <p className="text-medium pt-3 text-bold">
                     Wanna learn more about this ?
                   </p>
                   <div className={`pt-3 ${styles["visit_link"]} text-medium`}>
-                    <a href={model?.redirect_link || ""}>Visit here {"->"}</a>
+                    <a
+                      href={model?.redirect_link || ""}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Visit here {"->"}
+                    </a>
                   </div>
                 </div>
               </div>

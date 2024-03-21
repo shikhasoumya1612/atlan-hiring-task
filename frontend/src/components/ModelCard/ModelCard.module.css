@@ -1,5 +1,5 @@
 .model-card {
-  width: 250px;
+  width: 280px;
   transition: all ease 0.5s;
 }
 
@@ -8,8 +8,7 @@
 }
 
 .model-card img {
-  width: 248px;
-  height: 150px;
+  object-fit: contain;
 }
 
 .description {

@@ -4,13 +4,16 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { ImTable2 } from "react-icons/im";
 import { BsCreditCard2Front } from "react-icons/bs";
+import styles from "./ExplorePage.module.css";
+import Modal from "../../components/Modal/Modal";
+import AddNewModal from "../../components/AddNewModel/AddNewModel";
 
 const ExplorePage = ({ models }) => {
   const navigate = useNavigate();
   const [viewModels, setViewModels] = useState(models);
   const [inputValue, setInputValue] = useState("");
 
-  const [viewType, setViewType] = useState("table");
+  const [viewType, setViewType] = useState("card");
 
   const filterModelsBySearch = () => {
     console.log(models);
@@ -39,19 +42,18 @@ const ExplorePage = ({ models }) => {
   return (
     <div className="container-fluid">
       <div className="row mx-lg-5 px-lg-3 mt-3">
-        <div className="col-md-6 col-sm-12">
+        <div className="col-md-8 col-sm-12 d-flex flex-row gap-3 ps-4">
+          <button
+            className={`btn btn-dark btn-sm ${styles.add_button} mt-1 `}
+            data-bs-toggle="modal"
+            data-bs-target="#addNewModel"
+          >
+            <p className="text-small m-0">+ Add LLM Model</p>
+          </button>
           <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
         </div>
 
-        <div className="col-md-6 col-sm-12 d-flex gap-4 justify-content-end pt-3 pe-5">
-          <ImTable2
-            size={"22px"}
-            role="button"
-            onClick={() => setViewType("table")}
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Table View"
-          />
+        <div className="col-md-4 col-sm-12 d-flex gap-4 justify-content-end pt-3 pe-5">
           <BsCreditCard2Front
             size={"22px"}
             role="button"
@@ -60,10 +62,19 @@ const ExplorePage = ({ models }) => {
             data-placement="bottom"
             title="Card View"
           />
+
+          <ImTable2
+            size={"20px"}
+            role="button"
+            onClick={() => setViewType("table")}
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Table View"
+          />
         </div>
       </div>
 
-      <div className="mx-lg-5 mt-3">
+      <div className="mx-lg-5 mt-5">
         {inputValue.length > 0 &&
           (viewModels.length > 0 ? (
             <p className="text-small text-bold ps-lg-5 ps-md-3">
@@ -89,16 +100,14 @@ const ExplorePage = ({ models }) => {
 
         {viewType === "table" && (
           <div class="table-responsive mx-lg-5">
-            <table class="table table-hover ">
-              <thead className="table-primary">
+            <table class="table table-hover border">
+              <thead className="table-dark ">
                 <tr>
-                  <td className="py-3 text-medium text-bold">S. No</td>
-                  <td className="py-3 text-medium text-bold">Name</td>
-                  <td className="py-3 text-medium text-bold">
-                    Provider's Name
-                  </td>
-                  <td className="py-3 text-medium text-bold">Description</td>
-                  <td className="py-3 text-medium text-bold">
+                  <td className="py-3 text-small text-bold">S. No</td>
+                  <td className="py-3 text-small text-bold">Name</td>
+                  <td className="py-3 text-small text-bold">Provider's Name</td>
+                  <td className="py-3 text-small text-bold">Description</td>
+                  <td className="py-3 text-small text-bold">
                     Official Website
                   </td>
                 </tr>
@@ -109,20 +118,22 @@ const ExplorePage = ({ models }) => {
                     onClick={() => navigate(`/model/${model.id}`)}
                     role="button"
                   >
-                    <td className="py-3 text-small">{index + 1}</td>
-                    <td className="py-3 text-small">{model.model_name}</td>
-                    <td className="py-3 text-small provider">
+                    <td className="py-3 text-xs">{index + 1}</td>
+                    <td className="py-3 text-xs">{model.model_name}</td>
+                    <td className="py-3 text-xs provider">
                       {model.provider_name}
                     </td>
-                    <td className="py-3 text-small">
-                      {model.model_description.length > 150
-                        ? model.model_description.substring(0, 150) + "..."
+                    <td className="py-3 text-xs">
+                      {model.model_description.length > 200
+                        ? model.model_description.substring(0, 200) + "..."
                         : model.model_description}
                     </td>
 
-                    <td className="py-3 text-small">
+                    <td className={`py-3 text-xs ${styles.visit_link}`}>
                       <a
                         href={model.redirect_link}
+                        target="_blank"
+                        rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Go to Site
@@ -135,6 +146,15 @@ const ExplorePage = ({ models }) => {
           </div>
         )}
       </div>
+
+      <Modal
+        onSubmit={() => {}}
+        id={"addNewModel"}
+        hideFooter={true}
+        label={"Add LLM Model"}
+      >
+        <AddNewModal setViewModels={setViewModels} />
+      </Modal>
     </div>
   );
 };
