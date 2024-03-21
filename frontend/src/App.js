@@ -7,6 +7,7 @@ import ExplorePage from "./pages/ExplorePage/ExplorePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/Error/Error";
 import Error from "./pages/Error/Error";
+import Tryout from "./pages/Tryout/Tryout";
 
 function App() {
   const [models, setModels] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ExplorePage models={models} />} />
           <Route path="/model/:id" element={<ModelDetailsPage />} />
+          <Route path="/model/:id/tryout" element={<Tryout />} />
           <Route path="*" element={<Error status={404} />} />
         </Routes>
       </div>

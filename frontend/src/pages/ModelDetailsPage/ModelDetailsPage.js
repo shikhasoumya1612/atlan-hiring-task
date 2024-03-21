@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./ModelDetailsPage.module.css";
 import Typewriter from "../../components/Typewriter";
 import CodeComponent from "../../components/CodeComponent";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Error from "../Error/Error";
 
 const ModelDetailsPage = () => {
+  const navigate = useNavigate();
   const [model, setModel] = useState({});
   const [selectedExample, setSelectedExample] = useState({});
 
@@ -64,7 +65,10 @@ const ModelDetailsPage = () => {
                   <p className="text-medium mt-3">{model?.model_description}</p>
 
                   {model?.tryout && (
-                    <button className="btn btn-md btn-dark my-2 ">
+                    <button
+                      className="btn btn-md btn-dark my-2 "
+                      onClick={() => navigate(`/model/${model?.id}/tryout`)}
+                    >
                       <p className="text-medium my-0">Try it out !</p>
                     </button>
                   )}

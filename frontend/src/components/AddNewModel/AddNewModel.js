@@ -59,7 +59,7 @@ const AddNewModal = ({ setViewModels }) => {
     // Add your submission logic here
 
     try {
-      const response = await axios.patch(
+      const response = await axios.post(
         "http://localhost:5000/api/v1/model/add",
         formData
       );

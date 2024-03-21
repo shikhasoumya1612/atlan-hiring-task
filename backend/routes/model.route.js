@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.patch("/add", async (req, res) => {
+router.post("/add", async (req, res) => {
   const newModel = {
     ...req.body,
     id: responseModels.length + 1,
@@ -42,6 +42,25 @@ router.patch("/add", async (req, res) => {
     message: "Model added successfully",
     newModel,
   });
+});
+
+router.get("/tryout/:id", async (req, res) => {
+  const id = req.params.id;
+
+  let search_model = null;
+
+  for (let i = 0; i < responseModels.length; i++) {
+    if (responseModels[i].id == id) {
+      search_model = responseModels[i];
+      break;
+    }
+  }
+
+  if (search_model) {
+    res.send({ status: "Successful", tryout: search_model.tryout });
+  } else {
+    res.status(404).send({ status: "Failed", message: "Model not found" });
+  }
 });
 
 module.exports = router;
