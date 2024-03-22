@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/Error/Error";
 import Error from "./pages/Error/Error";
 import Tryout from "./pages/Tryout/Tryout";
+import Header from "./components/header";
 
 function App() {
   const [models, setModels] = useState([]);
@@ -31,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Header />
         <Routes>
           <Route path="/" element={<ExplorePage models={models} />} />
           <Route path="/model/:id" element={<ModelDetailsPage />} />

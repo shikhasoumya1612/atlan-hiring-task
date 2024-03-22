@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 const SearchBar = ({ inputValue, setInputValue }) => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    console.log(e.target);
   };
 
   const clearSearch = () => {

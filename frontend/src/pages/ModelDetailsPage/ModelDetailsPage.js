@@ -28,7 +28,6 @@ const ModelDetailsPage = () => {
         `http://localhost:5000/api/v1/model/${id}`
       );
 
-      console.log(response);
       setModel(response.data.model);
       setSelectedExample(response.data.model.examples[0]);
     } catch (error) {

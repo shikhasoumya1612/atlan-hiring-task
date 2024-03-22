@@ -16,8 +16,6 @@ const ExplorePage = ({ models }) => {
   const [viewType, setViewType] = useState("card");
 
   const filterModelsBySearch = () => {
-    console.log(models);
-
     let filteredModels = models?.filter((model) => {
       return (
         model?.model_name?.toLowerCase().includes(inputValue.toLowerCase()) ||

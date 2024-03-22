@@ -68,6 +68,7 @@ const AddNewModal = ({ setViewModels }) => {
     } catch (error) {
       console.log(error);
     }
+    setFormData(initialFormData);
   };
 
   const handleCancel = () => {
