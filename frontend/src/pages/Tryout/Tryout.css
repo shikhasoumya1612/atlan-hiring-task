@@ -1,6 +1,6 @@
 /* Tryout.css */
 .chat-container {
-  max-width: 600px;
+  max-width: 60%;
   margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -14,7 +14,7 @@
 }
 
 .previous-chats {
-  max-height: 300px;
+  height: 60vh;
   overflow-y: auto;
   padding-bottom: 10px;
 }
@@ -43,4 +43,32 @@
 
 #send-button {
   border-radius: 0 5px 5px 0;
+}
+
+#clear-button {
+  border-radius: 5px;
+}
+
+.disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.previous-chats::-webkit-scrollbar {
+  width: 7px;
+}
+
+.previous-chats::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+.previous-chats::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: black;
+}
+
+.typing-skeleton {
+  height: 20px;
 }

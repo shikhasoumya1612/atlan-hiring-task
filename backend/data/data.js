@@ -1,6 +1,6 @@
 const models = [
   {
-    tryout: true,
+    tryout: false,
     id: 1,
     redirect_link: "https://openai.com/blog/chatgpt",
     model_image:
