@@ -49,14 +49,13 @@ const AddNewModal = ({ setViewModels }) => {
 
   const handleRemoveExample = (index) => {
     const newExamples = [...formData.examples];
+
     newExamples.splice(index, 1);
     setFormData((prevState) => ({ ...prevState, examples: newExamples }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Submitted:", formData);
-    // Add your submission logic here
 
     try {
       const response = await axios.post(
@@ -80,12 +79,9 @@ const AddNewModal = ({ setViewModels }) => {
       {/* Name, Redirect Link, Image URL */}
       <div className="row row-cols-2">
         <div className="mb-3">
-          <label htmlFor="model_name" className="form-label text-small">
-            Name
-          </label>
+          <label className="form-label text-small">Name</label>
           <input
             type="text"
-            id="model_name"
             name="model_name"
             className="form-control"
             value={formData.model_name}
@@ -93,12 +89,9 @@ const AddNewModal = ({ setViewModels }) => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="redirect_link" className="form-label text-small">
-            Redirect Link
-          </label>
+          <label className="form-label text-small">Redirect Link</label>
           <input
             type="text"
-            id="redirect_link"
             name="redirect_link"
             className="form-control"
             value={formData.redirect_link}
@@ -109,12 +102,9 @@ const AddNewModal = ({ setViewModels }) => {
 
       <div className="row row-cols-2">
         <div className="mb-3">
-          <label htmlFor="model_image" className="form-label text-small">
-            Image URL
-          </label>
+          <label className="form-label text-small">Image URL</label>
           <input
             type="text"
-            id="model_image"
             name="model_image"
             className="form-control"
             value={formData.model_image}
@@ -123,12 +113,9 @@ const AddNewModal = ({ setViewModels }) => {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="provider_name" className="form-label text-small">
-            Provider Name
-          </label>
+          <label className="form-label text-small">Provider Name</label>
           <input
             type="text"
-            id="provider_name"
             name="provider_name"
             className="form-control"
             onChange={handleInputChange}
@@ -139,12 +126,9 @@ const AddNewModal = ({ setViewModels }) => {
 
       {/* Description */}
       <div className="mb-3">
-        <label htmlFor="model_description" className="form-label text-small">
-          Description
-        </label>
+        <label className="form-label text-small">Description</label>
         <textarea
           style={{ fontSize: "12px" }}
-          id="model_description"
           name="model_description"
           className="form-control"
           onChange={handleInputChange}
@@ -178,28 +162,24 @@ const AddNewModal = ({ setViewModels }) => {
           </p>
           <div className="row row-cols-4">
             <InputField
-              id={`title${index}`}
               name="title"
               label="Title"
               value={example.title}
               onChange={(e) => handleChangeExample(index, e)}
             />
             <InputField
-              id={`description${index}`}
               name="description"
               label="Description"
               value={example.description}
               onChange={(e) => handleChangeExample(index, e)}
             />
             <InputField
-              id={`input${index}`}
               name="input"
               label="Input"
               value={example.input}
               onChange={(e) => handleChangeExample(index, e)}
             />
             <InputField
-              id={`output${index}`}
               name="output"
               label="Output"
               value={example.output}
@@ -234,14 +214,11 @@ const AddNewModal = ({ setViewModels }) => {
 };
 
 // Reusable Input Field Component
-const InputField = ({ id, name, label, value, onChange }) => (
+const InputField = ({ name, label, value, onChange }) => (
   <div className="col">
-    <label htmlFor={id} className="form-label text-small">
-      {label}
-    </label>
+    <label className="form-label text-small">{label}</label>
     <input
       type="text"
-      id={id}
       name={name}
       className="form-control"
       value={value}
