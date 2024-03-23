@@ -72,3 +72,27 @@
 .typing-skeleton {
   height: 20px;
 }
+
+@media screen and (min-width: 1200px) {
+  .chat-container {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .chat-container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .chat-container {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .chat-container {
+    max-width: 90%;
+  }
+}
