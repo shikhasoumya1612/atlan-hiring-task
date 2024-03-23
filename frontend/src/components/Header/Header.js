@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-5 sticky-top py-3">
       <a onClick={() => navigate("/")} role="button">
@@ -13,30 +23,47 @@ const Header = () => {
       <button
         className="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        onClick={toggleNav}
+        aria-expanded={isNavOpen ? "true" : "false"}
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse px-2 mx-3" id="navbarNav">
+      <div
+        className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+        id="navbarNav"
+      >
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" onClick={() => navigate("/")} role="button">
+            <a
+              className="nav-link"
+              onClick={() => {
+                navigate("/");
+                closeNav();
+              }}
+              role="button"
+            >
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" onClick={() => navigate("/")} href="#about">
+            <a
+              className="nav-link"
+              onClick={() => {
+                navigate("/");
+                closeNav();
+              }}
+              href="#about"
+            >
               About
             </a>
           </li>
           <li className="nav-item">
             <a
               className="nav-link"
-              onClick={() => navigate("/")}
+              onClick={() => {
+                navigate("/");
+                closeNav();
+              }}
               href="#services"
             >
               Services
@@ -45,7 +72,10 @@ const Header = () => {
           <li className="nav-item">
             <a
               className="nav-link"
-              onClick={() => navigate("/models")}
+              onClick={() => {
+                navigate("/models");
+                closeNav();
+              }}
               role="button"
             >
               Explore Models
