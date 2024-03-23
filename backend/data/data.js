@@ -1,5 +1,6 @@
 const models = [
   {
+    views: 100,
     tryout: false,
     id: 1,
     redirect_link: "https://openai.com/blog/chatgpt",
@@ -70,6 +71,7 @@ generateText(prompt)
   },
 
   {
+    views: 100,
     tryout: false,
     id: 2,
     redirect_link:
@@ -144,6 +146,7 @@ generateText(prompt)
   },
 
   {
+    views: 100,
     tryout: true,
     id: 3,
     redirect_link: "https://gemini.google.com/",
@@ -200,7 +203,8 @@ generateText(prompt)
       },
       {
         title: "Vision",
-        description: "",
+        description:
+          "Gemini Vision is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.",
         input: "Display a beautiful picture of bouquet of flowers",
         output: "Here is a beautiful image of flowers : ",
         output_img:
@@ -244,6 +248,7 @@ generateText(prompt)
       "Google AI, a research division of Google dedicated to groundbreaking advancements in artificial intelligence, is the provider behind the powerful LLM Gemini.  Gemini exemplifies Google AI's commitment to pushing the boundaries. It boasts state-of-the-art performance across various LLM tasks and the ability to process information from various sources like text, code, and even video. This focus on versatility positions Gemini as a potential game-changer in research, creative content generation, and machine translation, all while Google AI explores ways to make it accessible through their cloud platform or APIs. ",
   },
   {
+    views: 100,
     tryout: false,
     id: 4,
     redirect_link: "https://developer.nvidia.com/",
@@ -251,7 +256,7 @@ generateText(prompt)
       "https://miro.medium.com/v2/resize:fit:828/format:webp/0*xJlbrkBSlytC6fp7.jpg",
     model_name: "Megatron-Turing NLG",
     model_description:
-      "The Megatron-Turing NLG model, a collaboration between Microsoft and NVIDIA, boasted a colossal 530 billion parameters, making it a powerhouse for its time. Not only did it excel at understanding factual information, but it truly shined in generating creative text formats like poems and code. This versatility, fueled by DeepSpeed and Megatron training frameworks on the Selene supercomputer, paved the way for even larger models and laid the groundwork for Google AI's Gemini, which explores multimodal processing beyond just text. Megatron-Turing NLG stood as a significant milestone in the evolution of LLMs. Its sheer size and impressive text generation capabilities paved the way for further advancements in the field.",
+      "The Megatron-Turing NLG model, a collaboration between Microsoft and NVIDIA, boasted a colossal 530 billion parameters, making it a powerhouse for its time. Not only did it excel at understanding factual information, but it truly shined in generating creative text formats like poems and code. This versatility, fueled by DeepSpeed and Megatron training frameworks on the Selene supercomputer, paved the way for even larger models, which explores multimodal processing beyond just text. Megatron-Turing NLG stood as a significant milestone in the evolution of LLMs. Its sheer size and impressive text generation capabilities paved the way for further advancements in the field.",
 
     examples: [
       {
@@ -335,6 +340,7 @@ generateText(prompt)
       "Megatron-Turing NLG was a joint effort by tech giants Microsoft Research, renowned for their AI research and software development, and NVIDIA, a leader in powerful GPUs crucial for training massive AI models. Microsoft likely designed the model architecture, selected training data, and evaluated its performance, while NVIDIA provided the high-performance computing muscle with GPUs to train Megatron-Turing NLG's massive parameter count. This collaboration between software expertise and cutting-edge hardware pushed the boundaries of LLM capabilities at the time. ",
   },
   {
+    views: 100,
     tryout: false,
     id: 5,
     redirect_link: "https://blog.google/technology/ai/try-bard/",
@@ -393,6 +399,7 @@ testAssistant();
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    views: 100,
     tryout: false,
     id: 6,
     redirect_link: "https://bloomai.co/",
@@ -444,6 +451,7 @@ print(generated_code)
       "BLOOM's development wasn't driven by a single entity, but rather a collaborative effort under BigScience. Meta AI played a major role, but it's important to recognize the broader research community's contribution to this open-source LLM. Meta AI itself is a prominent research lab dedicated to advancements in AI. They contribute to various LLM projects like BLOOM, showcasing their commitment to pushing the boundaries of language understanding and generation",
   },
   {
+    views: 100,
     tryout: false,
     id: 7,
     redirect_link:
@@ -502,6 +510,7 @@ print(tokenizer.decode(generated_code[0], skip_special_tokens=True))
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    views: 100,
     tryout: false,
     id: 8,
     redirect_link:
@@ -568,6 +577,7 @@ else:
       " Baidu is the leading internet search engine in China, controlling a vast majority of the search market. It offers various other internet services like cloud computing, online maps, and music streaming. Baidu tailors its services and products to the specific needs of the Chinese market, making them highly relevant to their user base.",
   },
   {
+    views: 100,
     tryout: false,
     id: 9,
     redirect_link:
@@ -634,6 +644,7 @@ else:
       "Facebook AI is a powerhouse in the AI world.  They delve into fundamental AI research, from language understanding to computer vision.  This translates into real-world applications like better image recognition on Facebook and the development of powerful language models.  While navigating privacy concerns and bias, Facebook AI strives to push the boundaries of AI for both innovation and social good.",
   },
   {
+    views: 100,
     tryout: false,
     id: 10,
     redirect_link: "https://primo.ai/index.php?title=XLNet",

@@ -60,7 +60,7 @@ const AddNewModal = ({ setViewModels }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/model/add",
+        `${process.env.REACT_APP_URL}/api/v1/model/add`,
         formData
       );
 

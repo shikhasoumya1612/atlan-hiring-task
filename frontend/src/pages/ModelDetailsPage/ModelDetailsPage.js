@@ -25,7 +25,7 @@ const ModelDetailsPage = () => {
       const id = params.id;
 
       const response = await axios.get(
-        `http://localhost:5000/api/v1/model/${id}`
+        `${process.env.REACT_APP_URL}/api/v1/model/${id}`
       );
 
       setModel(response.data.model);

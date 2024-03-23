@@ -18,6 +18,7 @@ router.get("/:id", async (req, res) => {
   for (let i = 0; i < responseModels.length; i++) {
     if (responseModels[i].id == id) {
       search_model = responseModels[i];
+      responseModels[i].views++;
       break;
     }
   }

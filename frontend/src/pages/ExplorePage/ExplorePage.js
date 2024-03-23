@@ -7,9 +7,16 @@ import { BsCreditCard2Front } from "react-icons/bs";
 import styles from "./ExplorePage.module.css";
 import Modal from "../../components/Modal/Modal";
 import AddNewModal from "../../components/AddNewModel/AddNewModel";
+import axios from "axios";
+import { AiOutlineStock } from "react-icons/ai";
+import About from "../../components/About/About";
+import Services from "../../components/Services/Services";
 
-const ExplorePage = ({ models }) => {
+const ExplorePage = () => {
   const navigate = useNavigate();
+
+  const [models, setModels] = useState([]);
+
   const [viewModels, setViewModels] = useState(models);
   const [inputValue, setInputValue] = useState("");
 
@@ -26,7 +33,21 @@ const ExplorePage = ({ models }) => {
       );
     });
 
+    console.log("here", filteredModels.length);
+
     setViewModels(filteredModels);
+  };
+
+  const fetchModels = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_URL}/api/v1/model/all`
+      );
+
+      setModels(response.data.models);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -37,17 +58,14 @@ const ExplorePage = ({ models }) => {
     filterModelsBySearch();
   }, [inputValue]);
 
+  useEffect(() => {
+    fetchModels();
+  }, []);
+
   return (
     <div className="container-fluid">
       <div className="row mx-lg-5 px-lg-3 mt-3">
-        <div className="col-md-8 col-sm-12 d-flex flex-row gap-3 ps-4">
-          <button
-            className={`btn btn-dark btn-sm ${styles.add_button} mt-1 `}
-            data-bs-toggle="modal"
-            data-bs-target="#addNewModel"
-          >
-            <p className="text-small m-0">+ Add LLM Model</p>
-          </button>
+        <div className="col-md-8 col-sm-12 d-flex flex-row gap-3 ps-1">
           <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
         </div>
 
@@ -72,7 +90,7 @@ const ExplorePage = ({ models }) => {
         </div>
       </div>
 
-      <div className="mx-lg-5 mt-5">
+      <div className="mx-lg-4 mt-5">
         {inputValue.length > 0 &&
           (viewModels.length > 0 ? (
             <p className="text-small text-bold ps-lg-5 ps-md-3">
@@ -84,16 +102,55 @@ const ExplorePage = ({ models }) => {
             </p>
           ))}
         {viewType === "card" && (
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            {viewModels?.map((model, index) => (
-              <div
-                className="col d-flex flex-row justify-content-center"
-                key={index}
-              >
-                <ModelCard model={model} />
+          <>
+            {!inputValue && (
+              <div className="mb-5">
+                <p className="text-medium text-bold ms-4">
+                  Featured Models{" "}
+                  <span>
+                    <AiOutlineStock size={"24px"} />
+                  </span>
+                </p>
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                  {[...viewModels]
+                    ?.sort((a, b) => b.views - a.views)
+                    .slice(0, 4)
+                    .map((model, index) => (
+                      <div
+                        className="col d-flex flex-row justify-content-center"
+                        key={index}
+                      >
+                        <ModelCard model={model} />
+                      </div>
+                    ))}
+                </div>
               </div>
-            ))}
-          </div>
+            )}
+
+            {!inputValue && (
+              <div className="d-flex flex-row justify-content-between pe-5 mb-4 ">
+                <p className="text-medium text-bold ms-4">All Models</p>
+                <button
+                  className={`btn btn-dark btn-sm ${styles.add_button} mt-1 `}
+                  data-bs-toggle="modal"
+                  data-bs-target="#addNewModel"
+                  style={{ width: "100px" }}
+                >
+                  <p className="text-xs m-0">+ Add Model</p>
+                </button>
+              </div>
+            )}
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+              {viewModels?.map((model, index) => (
+                <div
+                  className="col d-flex flex-row justify-content-center"
+                  key={index}
+                >
+                  <ModelCard model={model} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {viewType === "table" && (

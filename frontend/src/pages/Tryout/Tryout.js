@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import Error from "../Error/Error";
 import "./Tryout.css";
@@ -9,6 +9,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const Tryout = () => {
   const params = useParams();
+
+  const chatsContainerRef = useRef(null);
 
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
@@ -20,7 +22,7 @@ const Tryout = () => {
     setError(null);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/model/tryout/${params.id}`
+        `${process.env.REACT_APP_URL}/api/v1/model/tryout/${params.id}`
       );
 
       if (!response.data.tryout) {
@@ -85,6 +87,14 @@ const Tryout = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Scroll the chats container to the bottom
+    if (chatsContainerRef.current) {
+      chatsContainerRef.current.scrollTop =
+        chatsContainerRef.current.scrollHeight;
+    }
+  }, [chats]);
+
   return (
     <>
       {error ? (
@@ -96,7 +106,7 @@ const Tryout = () => {
             <p className="text-medium">Your friendly AI assistant</p>
           </div>
 
-          <div className="previous-chats ">
+          <div className="previous-chats " ref={chatsContainerRef}>
             {chats.map((chat, index) => (
               <div
                 className={`d-flex me-3 ${
@@ -105,7 +115,7 @@ const Tryout = () => {
               >
                 <div
                   key={index}
-                  className={`chat-message text-small${
+                  className={`chat-message text-small ${
                     chat.sentByUser ? "user-message" : "bot-message"
                   }`}
                 >
