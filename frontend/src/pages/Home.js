@@ -8,8 +8,10 @@ import hero from "../assets/hero.png";
 
 const Home = () => {
   const [models, setModels] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchModels = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_URL}/api/v1/model/all`
@@ -19,6 +21,7 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
   useEffect(() => {
     fetchModels();
@@ -26,27 +29,31 @@ const Home = () => {
 
   return (
     <div className="container-fluid">
-      <div className="my-5">
-        <p className="text-large text-bold text-center mt-3">
-          Featured Models{" "}
-          <span>
-            <AiOutlineStock size={"30px"} />
-          </span>
-        </p>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-5">
-          {[...models]
-            ?.sort((a, b) => b.views - a.views)
-            .slice(0, 4)
-            .map((model, index) => (
-              <div
-                className="col d-flex flex-row justify-content-center"
-                key={index}
-              >
-                <ModelCard model={model} />
-              </div>
-            ))}
+      {loading ? (
+        <div className="loader mx-auto mt-5"></div>
+      ) : (
+        <div className="my-5">
+          <p className="text-large text-bold text-center mt-3">
+            Featured Models{" "}
+            <span>
+              <AiOutlineStock size={"30px"} />
+            </span>
+          </p>
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-5">
+            {[...models]
+              ?.sort((a, b) => b.views - a.views)
+              .slice(0, 4)
+              .map((model, index) => (
+                <div
+                  className="col d-flex flex-row justify-content-center"
+                  key={index}
+                >
+                  <ModelCard model={model} />
+                </div>
+              ))}
+          </div>
         </div>
-      </div>
+      )}
       <About />
       <Services />
     </div>
