@@ -81,6 +81,7 @@ const Tryout = () => {
   };
 
   useEffect(() => {
+    checkTryout();
     const storedChats = localStorage.getItem("chats");
     if (storedChats) {
       setChats(JSON.parse(storedChats));
