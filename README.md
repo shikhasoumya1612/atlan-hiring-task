@@ -1,4 +1,4 @@
-# Project Name
+# Atlan Hiring Task
 
 ## Description
 This project consists of a backend and frontend application. The backend is built using Node.js with Express, while the frontend is built using React.
