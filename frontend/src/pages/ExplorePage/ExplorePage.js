@@ -23,7 +23,7 @@ const ExplorePage = () => {
   const [loading, setLoading] = useState(true);
 
   const [viewType, setViewType] = useState("card");
-
+  //Filtre by search
   const filterModelsBySearch = () => {
     let filteredModels = models?.filter((model) => {
       return (
@@ -35,11 +35,9 @@ const ExplorePage = () => {
       );
     });
 
-    console.log("here", filteredModels.length);
-
     setViewModels(filteredModels);
   };
-
+  //fetch all models
   const fetchModels = async () => {
     setLoading(true);
     try {
@@ -102,6 +100,7 @@ const ExplorePage = () => {
             </div>
           </div>
 
+          {/* Showing no. of results */}
           <div className="mx-lg-4 mt-5">
             {inputValue.length > 0 &&
               (viewModels.length > 0 ? (
@@ -113,6 +112,7 @@ const ExplorePage = () => {
                   No results found
                 </p>
               ))}
+            {/*Featured Models */}
             {viewType === "card" && (
               <>
                 {!inputValue && (
@@ -152,6 +152,7 @@ const ExplorePage = () => {
                     </button>
                   </div>
                 )}
+                {/* All Models */}
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                   {viewModels?.map((model, index) => (
                     <div
@@ -164,7 +165,7 @@ const ExplorePage = () => {
                 </div>
               </>
             )}
-
+            {/* TableView all models */}
             {viewType === "table" && (
               <div class="table-responsive mx-lg-5">
                 <table class="table table-hover border">

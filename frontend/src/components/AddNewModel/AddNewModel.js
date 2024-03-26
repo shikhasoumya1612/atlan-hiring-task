@@ -16,6 +16,7 @@ const AddNewModal = ({ setViewModels }) => {
 
   const [formData, setFormData] = useState(initialFormData);
 
+  //Set Name, Redirect Link, Image URL Provider Name entered
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (
@@ -28,7 +29,7 @@ const AddNewModal = ({ setViewModels }) => {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
   };
-
+  //Set Examples
   const handleChangeExample = (index, event) => {
     const { name, value } = event.target;
 
@@ -36,7 +37,7 @@ const AddNewModal = ({ setViewModels }) => {
     newExamples[index][name] = value;
     setFormData((prevState) => ({ ...prevState, examples: newExamples }));
   };
-
+  //Adds New Use Cases(Example)
   const handleAddExample = () => {
     setFormData((prevState) => ({
       ...prevState,
@@ -46,14 +47,14 @@ const AddNewModal = ({ setViewModels }) => {
       ],
     }));
   };
-
+  //Removes Example
   const handleRemoveExample = (index) => {
     const newExamples = [...formData.examples];
 
     newExamples.splice(index, 1);
     setFormData((prevState) => ({ ...prevState, examples: newExamples }));
   };
-
+  //Handles Submit
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -69,14 +70,14 @@ const AddNewModal = ({ setViewModels }) => {
     }
     setFormData(initialFormData);
   };
-
+  //Cancels
   const handleCancel = () => {
     setFormData(initialFormData);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Name, Redirect Link, Image URL */}
+      {/* Name, Redirect Link, Image URL Provider Name */}
       <div className="row row-cols-2">
         <div className="mb-3">
           <label className="form-label text-small">Name</label>

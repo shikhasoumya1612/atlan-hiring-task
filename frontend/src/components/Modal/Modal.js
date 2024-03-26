@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Modal.css";
 
 function Modal({ id, children, label }) {
-  console.log(children);
   return (
     <div
       class="modal fade bd-example-modal-xl"

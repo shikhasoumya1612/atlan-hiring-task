@@ -2,6 +2,7 @@ import React from "react";
 import about from "../../assets/about.png";
 import "./About.css";
 
+//display about section
 const About = () => {
   return (
     <div className="container-fluid my-5" id="about">

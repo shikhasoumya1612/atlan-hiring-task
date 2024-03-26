@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ModelCard = ({ model }) => {
   const navigate = useNavigate();
 
+  //navigate to its respective modelCard
   const handleNavigate = () => {
     navigate(`/model/${model.id}`);
   };

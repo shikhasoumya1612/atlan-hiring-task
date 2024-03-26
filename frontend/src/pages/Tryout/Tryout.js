@@ -15,9 +15,8 @@ const Tryout = () => {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
-
   const [typing, setTyping] = useState(false);
-
+  //Check the value of Tryout
   const checkTryout = async () => {
     setError(null);
     try {
@@ -29,7 +28,6 @@ const Tryout = () => {
         setError({ message: "Tryout does not exist" });
       }
     } catch (error) {
-      console.log(error);
       setError(error);
     }
   };
@@ -37,7 +35,7 @@ const Tryout = () => {
   const handleSendMessage = async () => {
     if (message.trim() === "") return;
 
-    // chat history is fixed. It does not containe new message and gemini message
+    // chat history is fixed. It does not contain new message and gemini message
 
     // chat before the new cycle i.e. current message and gemini message
     const chatHistory = [...chats];

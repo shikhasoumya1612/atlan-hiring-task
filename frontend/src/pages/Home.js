@@ -6,23 +6,26 @@ import { AiOutlineStock } from "react-icons/ai";
 import axios from "axios";
 import hero from "../assets/hero.png";
 
+//fetching content of home
 const Home = () => {
   const [models, setModels] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  //fetching all models
   const fetchModels = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_URL}/api/v1/model/all`
       );
-
+      console.log(response);
       setModels(response.data.models);
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
   };
+
   useEffect(() => {
     fetchModels();
   }, []);
@@ -40,6 +43,7 @@ const Home = () => {
             </span>
           </p>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-5">
+            {/*sorting based on most viewed or favourite */}
             {[...models]
               ?.sort((a, b) => b.views - a.views)
               .slice(0, 4)

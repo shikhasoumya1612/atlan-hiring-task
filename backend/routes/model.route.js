@@ -10,6 +10,7 @@ router.get("/all", async (req, res) => {
   res.send({ status: "Successful", models: responseModels });
 });
 
+//fetch a single model
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -30,6 +31,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//adding model
 router.post("/add", async (req, res) => {
   const newModel = {
     ...req.body,
@@ -44,7 +46,7 @@ router.post("/add", async (req, res) => {
     newModel,
   });
 });
-
+//reteieving the value of tryout
 router.get("/tryout/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -53,6 +55,7 @@ router.get("/tryout/:id", async (req, res) => {
   for (let i = 0; i < responseModels.length; i++) {
     if (responseModels[i].id == id) {
       search_model = responseModels[i];
+      console.log(search_model);
       break;
     }
   }

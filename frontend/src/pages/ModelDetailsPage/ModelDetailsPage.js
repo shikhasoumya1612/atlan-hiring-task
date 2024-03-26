@@ -8,15 +8,15 @@ import Error from "../Error/Error";
 
 const ModelDetailsPage = () => {
   const navigate = useNavigate();
+
   const [model, setModel] = useState({});
   const [selectedExample, setSelectedExample] = useState({});
 
   const [error, setError] = useState(null);
-
   const [loading, setLoading] = useState(true);
 
   const params = useParams();
-
+  //Fetch Model Details
   const fetchModel = async () => {
     setLoading(true);
     setError(null);
@@ -97,6 +97,7 @@ const ModelDetailsPage = () => {
                     </p>
                   ))}
                 </div>
+
                 <hr className="mt-1 mx-md-4 mx-sm-1" />
               </div>
 
