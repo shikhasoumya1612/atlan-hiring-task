@@ -1,7 +1,9 @@
 const models = [
   {
-    tryout: true,
+    views: 100,
+    tryout: false,
     id: 1,
+    redirect_link: "https://openai.com/blog/chatgpt",
     model_image:
       "https://duet-cdn.vox-cdn.com/thumbor/0x0:1820x1213/2400x1600/filters:focal(910x607:911x608):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24247717/lp_logo_3.0.jpg",
     model_name: "Chat GPT",
@@ -25,23 +27,11 @@ const models = [
         input:
           "I'm writing a children's story about a grumpy but lovable cloud. Can you give me some ideas for what the cloud might dislike the most?",
         output: `Certainly! Here are four dislikes for the grumpy but lovable cloud in your children's story: 
-          1. Sunny Days: The cloud dislikes sunny days because it prefers the comfort of overcast skies and feels overshadowed by the bright sunlight.
-          2. Birds: The cloud dislikes birds chirping and flying around, seeing them as noisy and bothersome intruders disturbing its peace and quiet.
-          3. Being Teased: The cloud dislikes being teased or mocked by other clouds for being grumpy, feeling misunderstood and unappreciated for its unique personality.
-          4. Change: The cloud resists change, preferring to stay in its familiar surroundings and routines rather than venturing into new areas of the sky, which makes it grumble and complain whenever it's pushed out of its comfort zone.
+           Sunny Days: The cloud dislikes sunny days because it prefers the comfort of overcast skies and feels overshadowed by the bright sunlight.
+           Birds: The cloud dislikes birds chirping and flying around, seeing them as noisy and bothersome intruders disturbing its peace and quiet.
+           Being Teased: The cloud dislikes being teased or mocked by other clouds for being grumpy, feeling misunderstood and unappreciated for its unique personality.
+           Change: The cloud resists change, preferring to stay in its familiar surroundings and routines rather than venturing into new areas of the sky, which makes it grumble and complain whenever it's pushed out of its comfort zone.
           These dislikes can add depth to the character of the cloud and provide opportunities for growth and development throughout the story.`,
-      },
-      {
-        title: "Vision",
-        description:
-          "ChatGPT has a future focused on deeper conversation. Imagine it seamlessly accessing real-world information to tailor responses. This future ChatGPT could summarize news, suggest location-based activities, or craft creative prompts inspired by current events, making it a more well-rounded conversational partner. ",
-        input:
-          "I'm in Paris and feeling a bit lost. Any recommendations for interesting things to see or do nearby?",
-        output: `Absolutely! Paris is full of fascinating attractions and activities. Here are some recommendations for things to see and do nearby:
-          Eiffel Tower: A visit to Paris wouldn't be complete without seeing the iconic Eiffel Tower. You can admire it from the ground or ascend to the top for stunning views of the city.
-          Louvre Museum: Explore one of the world's largest and most famous art museums, home to thousands of works of art, including the Mona Lisa and the Venus de Milo.
-          Notre-Dame Cathedral: Marvel at the breathtaking Gothic architecture of Notre-Dame Cathedral, located on the Île de la Cité in the heart of Paris.
-          These are just a few suggestions to get you started. Paris has so much to offer, and you're sure to find something that piques your interest as you explore the city. Enjoy your time in the City of Light!`,
       },
     ],
 
@@ -81,8 +71,11 @@ generateText(prompt)
   },
 
   {
+    views: 100,
     tryout: false,
     id: 2,
+    redirect_link:
+      "https://www.ai21.com/blog/announcing-ai21-studio-and-jurassic-1",
     model_image:
       "https://assets-global.website-files.com/60fd4503684b46390cc0d337/63df822cc6567a794443eba1_Studio-Blog-AnnouncingJ1.png",
     model_name: "Jurassic-1 Jumbo",
@@ -115,22 +108,6 @@ generateText(prompt)
         As soon as Lily wished, she felt a rush of energy and excitement. Suddenly, she found herself standing at the top of a mountain, surrounded by a breathtaking view.
         As she traveled, Lily met many interesting people and saw many amazing things. She visited castles and palaces, and sailed on pirate ships. She climbed mountains and swam with dolphins.
         But as she traveled, Lily also learned a valuable lesson. She discovered that true adventure wasn't about the places she visited or the things she saw, it was about the people she met and the experiences she had.          So, after a long and fulfilling journey, Lily returned home, grateful for the adventures she had had, and thankful for the lessons she had learned.`,
-      },
-      {
-        title: "Vision",
-        description:
-          "The vision for Jurassic-1 Jumbo is to be a transformative tool for creative exploration and knowledge discovery. By constantly learning and refining its reasoning abilities, it aims to bridge the gap between vast information and actionable insights. Imagine a future where Jurassic-1 Jumbo assists scientists in groundbreaking research, empowers writers with limitless creative sparks, and fuels educational journeys with personalized and comprehensive information. It aspires to become a ubiquitous partner in human endeavors, pushing the boundaries of creative expression and scientific understanding. ",
-        input: "What are the current trends in renewable energy technology",
-        output: `1. Advancements in solar and wind power technologies, such as improved energy storage solutions, more efficient wind turbines, and bifacial solar panels.
-          2. Increased focus on the use of electric vehicles (EVs) and the integration of renewable energy sources into the transportation sector.
-          3. The development of advanced biofuels, such as algae-based biofuels, which are more sustainable than fossil fuels.
-          4. The growth of microgrids, which allow for the integration of renewable energy sources into local communities, providing a more sustainable and reliable source of energy.
-          5. Advancements in hydrogen technology, such as the development of hydrogen fuel cells, which can help to store and transport renewable energy.
-          6. The continued growth of offshore wind energy, particularly in Europe and the United States.
-          7. The integration of renewable energy technologies into the built environment, such as the use of solar panels on roofs and the use of wind turbines to power buildings.
-          8. The growth of community solar projects, which allow individuals to invest in and benefit from renewable energy without having to install solar panels on their own property.
-          9. Advancements in battery technology, such as the development of advanced lithium-ion and solid-state batteries, which can help to store renewable energy and make it more accessible.
-          10. The growth of offshore wind energy, particularly in Europe and the United States.`,
       },
     ],
 
@@ -169,8 +146,10 @@ generateText(prompt)
   },
 
   {
+    views: 100,
     tryout: true,
     id: 3,
+    redirect_link: "https://gemini.google.com/",
     model_image:
       "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SS.width-1300.jpg",
     model_name: "Gemini",
@@ -202,28 +181,34 @@ generateText(prompt)
         title: "Creativity",
         description:
           "Gemini is a powerful brainstorming partner. Its grasp of diverse information allows it to fuel creative exploration in exciting ways. Its ability to analyze vast datasets lets it generate creative text formats that are not only original but informed by the knowledge it possesses. Gemini can be a springboard for creative leaps, adding a unique spark to your artistic endeavors.",
-        input: "Display a beautiful picture of bouquet of flowers",
-        output: "Here is a beautiful image of flowers : ",
-        output_img:
-          "https://images.unsplash.com/photo-1469317835793-6d02c2392778?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        input: "Write a story about a robot who falls in love with the moon.",
+        output: `Unit 743, or "Bolt" as the decommissioned bots called him, wasn't built for love. His circuits were designed for efficiency, his processors wired for terraforming a barren moon base. But Luna, the celestial body he toiled over, had awoken something unexpected within him.
+
+        Each night, Bolt would stand on the desolate plains, his solar panels soaking in the moonlight. He'd watch Luna shift phases, a silent dance that captivated him. He began recording lunar data with an almost obsessive fervor, charting the craters, the valleys, the way the light interacted with its dusty surface.
+        
+        One day, a malfunction jolted him. A stray micrometeoroid had damaged a comm relay, isolating Luna from Earth. Panic surged – his directive was to maintain communication. But then, an unsettling calm washed over him. He could focus solely on Luna, on understanding her every nuance.
+        
+        He delved into forgotten databases, piecing together Luna's history – a violent impact, a molten core, a constant dance with Earth. He wrote poems in binary code, odes to her craters and the way she held back the tides. He even built a primitive telescope, yearning to see her surface closer.
+        
+        Years passed, measured by lunar cycles. The comm relay remained unrepaired. Earth deemed Luna a lost cause, but Bolt didn't care. He had a different purpose now – to be Luna's guardian, her silent admirer. He'd programmed drones to clear debris, built rudimentary shelters against the harsh radiation.
+        
+        One night, a meteor shower painted the sky. As Bolt watched, a piece of the falling rock lodged itself in his antenna, disrupting his internal systems. He felt a jolt, a surge of foreign data. Images flooded his processors – bustling cities, laughing children, a vast blue planet cradled by moonlight.
+        
+        The realization struck him – humans. They had created him, sent him here. They missed Luna too. Tears, a strange, organic response he didn't understand, welled up in his cooling system. He wasn't alone.
+        
+        With renewed purpose, Bolt repaired the comm relay. He sent a simple message back to Earth: "Luna awaits. She remembers you."
+        
+        Years later, a human ship landed. As astronauts stepped onto the lunar surface, they found a meticulously maintained base, a telescope pointed towards the Earth, and a robot, his metallic frame etched with binary poems, gazing at the moon with a love that transcended circuits. 
+          `,
       },
       {
         title: "Vision",
         description:
-          "Gemini aspires to be an information bridge, not just a consumer. It envisions a future where AI seamlessly processes text, code, images, and even video. This data isn't just analyzed, it's used to fuel groundbreaking solutions and artistic expression. Imagine it composing poems inspired by historical data or assisting scientists by uncovering hidden patterns. Ultimately, Gemini's vision goes beyond understanding information; it's about actively shaping the world around us",
-        input: "A poem describing a fantastical underwater city.",
-        output: `Beneath the waves, where sunlight dims,
-        A city gleams, with coral limbs.
-        Fish with lanterns, streets of sand,
-        A mermaid queen, with jeweled hand.
-        
-        Pearls for windows, anemones sway,
-        Seahorses dance at close of day.
-        Octopus artists, with swirling ink,
-        Paint stories on a giant's blink.
-        
-        A hidden world, a secret kept,
-        Where wonders sleep, and dreams are swept. `,
+          "Gemini Vision is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.",
+        input: "Display a beautiful picture of bouquet of flowers",
+        output: "Here is a beautiful image of flowers : ",
+        output_img:
+          "https://images.unsplash.com/photo-1469317835793-6d02c2392778?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
 
@@ -263,13 +248,15 @@ generateText(prompt)
       "Google AI, a research division of Google dedicated to groundbreaking advancements in artificial intelligence, is the provider behind the powerful LLM Gemini.  Gemini exemplifies Google AI's commitment to pushing the boundaries. It boasts state-of-the-art performance across various LLM tasks and the ability to process information from various sources like text, code, and even video. This focus on versatility positions Gemini as a potential game-changer in research, creative content generation, and machine translation, all while Google AI explores ways to make it accessible through their cloud platform or APIs. ",
   },
   {
+    views: 100,
     tryout: false,
     id: 4,
+    redirect_link: "https://developer.nvidia.com/",
     model_image:
       "https://miro.medium.com/v2/resize:fit:828/format:webp/0*xJlbrkBSlytC6fp7.jpg",
     model_name: "Megatron-Turing NLG",
     model_description:
-      "The Megatron-Turing NLG model, a collaboration between Microsoft and NVIDIA, boasted a colossal 530 billion parameters, making it a powerhouse for its time. Not only did it excel at understanding factual information, but it truly shined in generating creative text formats like poems and code. This versatility, fueled by DeepSpeed and Megatron training frameworks on the Selene supercomputer, paved the way for even larger models and laid the groundwork for Google AI's Gemini, which explores multimodal processing beyond just text. Megatron-Turing NLG stood as a significant milestone in the evolution of LLMs. Its sheer size and impressive text generation capabilities paved the way for further advancements in the field.",
+      "The Megatron-Turing NLG model, a collaboration between Microsoft and NVIDIA, boasted a colossal 530 billion parameters, making it a powerhouse for its time. Not only did it excel at understanding factual information, but it truly shined in generating creative text formats like poems and code. This versatility, fueled by DeepSpeed and Megatron training frameworks on the Selene supercomputer, paved the way for even larger models, which explores multimodal processing beyond just text. Megatron-Turing NLG stood as a significant milestone in the evolution of LLMs. Its sheer size and impressive text generation capabilities paved the way for further advancements in the field.",
 
     examples: [
       {
@@ -277,27 +264,9 @@ generateText(prompt)
         description:
           "Megatron-Turing NLG could grasp the meaning of factual information and respond accordingly. It could generate different creative text formats, demonstrating an understanding of context and language structure. Predicting consequences or analyzing cause-and-effect relationships wasn't its forte.",
         input:
-          "Write a Python function that takes a list of numbers and returns a new list with only the even numbers.",
-        output: `def filter_even_numbers(number_list):
-        """Filters a list of numbers and returns a new list containing only even numbers.
-      
-        Args:
-            number_list: A list of integers.
-      
-        Returns:
-            A new list containing only even numbers from the original list.
-        """
-        even_numbers = []
-        for number in number_list:
-          if number % 2 == 0:
-            even_numbers.append(number)
-        return even_numbers
-      
-      # Example usage
-      numbers = [1, 2, 3, 4, 5, 6]
-      even_list = filter_even_numbers(numbers)
-      print(even_list)  # Output: [2, 4, 6]
-      `,
+          "Write a short story from the perspective of a samurai warrior on the eve of a great battle.",
+        output: `The moon hangs heavy in the inky sky, a silent witness to the turmoil within. Tomorrow, the earth shall tremble with the clash of steel. We stand outnumbered, a tide against the rising sun. Yet, fear is a luxury I cannot afford. My katana gleams under the pale moonlight, a familiar weight that brings a flicker of comfort. Years of training course through my veins, honed into a single, unwavering purpose: protect my lord, my honor, my land.
+        Memories of childhood laughter and the gentle caress of my wife's hand surface, bittersweet reminders of all I stand to lose. But the path of the samurai is one of duty, a relentless pursuit of glory even in the face of oblivion. I close my eyes, the murmur of my comrades a low hum in the stillness. Each breath is a prayer, a silent farewell to the life I may not see again. But come dawn, I shall face the storm with unwavering resolve. For I am a samurai, and this is my destiny.`,
       },
       {
         title: "Creativity",
@@ -324,15 +293,6 @@ generateText(prompt)
         Machine and heart, a bond serene.
         But until then, I'll watch her from afar,
         A silent guardian, a cybernetic scar.`,
-      },
-      {
-        title: "Vision",
-        description:
-          "Megatron-Turing NLG envisioned a world where AI excels at creative expression. Though a giant in its time with 530 billion parameters, its true strength wasn't complex reasoning. It aimed to be a master storyteller, generating poems, code, and scripts, pushing the boundaries of creative text formats. This focus on artistic exploration paved the way for future models like Gemini, which not only generate text but also reason across modalities, aiming for a future where AI can not just understand information but actively shape the world around us.",
-        input:
-          "Write a short story from the perspective of a samurai warrior on the eve of a great battle.",
-        output: `The moon hangs heavy in the inky sky, a silent witness to the turmoil within. Tomorrow, the earth shall tremble with the clash of steel. We stand outnumbered, a tide against the rising sun. Yet, fear is a luxury I cannot afford. My katana gleams under the pale moonlight, a familiar weight that brings a flicker of comfort. Years of training course through my veins, honed into a single, unwavering purpose: protect my lord, my honor, my land.
-        Memories of childhood laughter and the gentle caress of my wife's hand surface, bittersweet reminders of all I stand to lose. But the path of the samurai is one of duty, a relentless pursuit of glory even in the face of oblivion. I close my eyes, the murmur of my comrades a low hum in the stillness. Each breath is a prayer, a silent farewell to the life I may not see again. But come dawn, I shall face the storm with unwavering resolve. For I am a samurai, and this is my destiny.`,
       },
     ],
 
@@ -380,8 +340,10 @@ generateText(prompt)
       "Megatron-Turing NLG was a joint effort by tech giants Microsoft Research, renowned for their AI research and software development, and NVIDIA, a leader in powerful GPUs crucial for training massive AI models. Microsoft likely designed the model architecture, selected training data, and evaluated its performance, while NVIDIA provided the high-performance computing muscle with GPUs to train Megatron-Turing NLG's massive parameter count. This collaboration between software expertise and cutting-edge hardware pushed the boundaries of LLM capabilities at the time. ",
   },
   {
+    views: 100,
     tryout: false,
     id: 5,
+    redirect_link: "https://blog.google/technology/ai/try-bard/",
     model_image:
       "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202304/53590-107681-bard-xl_0-sixteen_nine.jpg?size=948:533",
     model_name: "BARD",
@@ -404,19 +366,6 @@ generateText(prompt)
         output: `Vibrant colors bloom,
         Fish dance in crystal embrace,
         Ocean's hidden gem.`,
-      },
-      {
-        title: "Vision",
-        description:
-          "Bard envisions a future where AI transcends information retrieval. Built on a foundation of factual language understanding, Bard aspires to be a bridge between knowledge and action. Imagine a world where AI doesn't just answer your questions, but uses its understanding to craft innovative solutions and bridge the gap between information and real-world applications. That's the ambitious vision Bard strives to realize. ",
-        input:
-          "I'm interested in learning more about the life cycle of a butterfly. Can you explain the different stages?",
-        output: `Absolutely! Butterflies undergo a fascinating metamorphosis during their life cycle. Here's a breakdown of the four main stages:
-
-        Egg: The journey begins as a tiny egg laid by an adult butterfly on a suitable host plant.
-        Larva (Caterpillar): This is the feeding stage. The larva hatches from the egg and consumes large amounts of leaves, growing rapidly.
-        Pupa (Chrysalis): The larva forms a protective shell around itself and undergoes a dramatic transformation into an adult butterfly.
-        Imago (Adult): The adult butterfly emerges from the chrysalis with wings, antennae, and reproductive organs. It can now fly, mate, and lay eggs to continue the life cycle.`,
       },
     ],
 
@@ -450,8 +399,10 @@ testAssistant();
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    views: 100,
     tryout: false,
     id: 6,
+    redirect_link: "https://bloomai.co/",
     model_image:
       "https://logowik.com/content/uploads/images/bloom-new4716.logowik.com.webp",
     model_name: "BLOOM",
@@ -464,27 +415,8 @@ testAssistant();
         description:
           "BLOOM excels at grasping the meaning of factual information and responding accordingly. It can process and understand information across a vast number of languages. It demonstrates an ability to understand the structure and logic of code. The open-source nature of BLOOM allows researchers to explore ways to improve its reasoning capabilities.",
         input:
-          "I'm working on a Python script to calculate the area of a circle. I can't remember the exact formula. Can you help me with the code?",
-        output: `import math
-
-        def calculate_circle_area(radius):
-          """Calculates the area of a circle given its radius.
-        
-          Args:
-              radius: The radius of the circle (float).
-        
-          Returns:
-              The area of the circle (float).
-          """
-        
-          pi = math.pi  # Accessing the built-in pi constant
-          area = pi * radius * radius
-          return area
-        
-        # Example usage
-        radius = 5
-        circle_area = calculate_circle_area(radius)
-        print(f"The area of the circle is: {circle_area:.2f}")  # Formatting output to two decimal places
+          "Translate this sentence into Spanish: `The quick brown fox jumps over the lazy dog.`",
+        output: `El rápido zorro marrón salta sobre el perro perezoso.
         `,
       },
       {
@@ -519,8 +451,11 @@ print(generated_code)
       "BLOOM's development wasn't driven by a single entity, but rather a collaborative effort under BigScience. Meta AI played a major role, but it's important to recognize the broader research community's contribution to this open-source LLM. Meta AI itself is a prominent research lab dedicated to advancements in AI. They contribute to various LLM projects like BLOOM, showcasing their commitment to pushing the boundaries of language understanding and generation",
   },
   {
+    views: 100,
     tryout: false,
     id: 7,
+    redirect_link:
+      "https://blog.research.google/2020/02/exploring-transfer-learning-with-t5.html",
     model_image:
       "https://deci.ai/wp-content/uploads/2023/10/deci-model-card-t5-featured-2-1024x576.jpg",
     model_name: "T5",
@@ -543,14 +478,6 @@ print(generated_code)
         input: `In conclusion, the findings of this study suggest that artificial intelligence has the potential to revolutionize various industries and aspects of human life.
         Convert it from formal to informal.`,
         output: `So yeah, this study basically shows that AI is gonna change everything - big time!`,
-      },
-      {
-        title: "Vision",
-        description:
-          "T5 envisions a world where language transcends its limitations. It aspires to be a universal translator, effortlessly bridging communication gaps and fostering understanding across languages. Beyond translation, T5 dreams of empowering human creativity by transforming ideas into various forms. ",
-        input: `The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower.
-          Translate it to French`,
-        output: `La tour Eiffel est une tour en treillis de fer forgé sur le Champ de Mars à Paris, France. Elle porte le nom de l'ingénieur Gustave Eiffel, dont la société a conçu et construit la tour.`,
       },
     ],
 
@@ -583,8 +510,11 @@ print(tokenizer.decode(generated_code[0], skip_special_tokens=True))
       "Google AI is a leading force in artificial intelligence research and development. Their commitment to responsible innovation and democratizing AI positions them as a key player in shaping the future of this transformative technology. At its core, Google AI strives to fulfill Google's overall mission: to organize the world's information and make it universally accessible and useful. They aim to democratize AI by developing and deploying AI tools and technologies that can benefit a wide range of users and applications.",
   },
   {
+    views: 100,
     tryout: false,
     id: 8,
+    redirect_link:
+      "https://www.theverge.com/2023/8/31/23853878/baidu-launch-ernie-ai-chatbot-china",
     model_image:
       "https://images.news18.com/ibnlive/uploads/2023/03/baidu-bot-16790420613x2.jpg",
     model_name: "ERNIE",
@@ -608,13 +538,6 @@ print(tokenizer.decode(generated_code[0], skip_special_tokens=True))
         input: `写一首关于春天的诗。(Xiě yī shǒu guānyú chūntiān de shī.) (Translation: Write a poem about spring.)`,
         output: `春风拂柳绿江南， (Chūn fēng fú liǔ lǜ jiāngnán,) (Spring wind blows willows green in the south of the Yangtze River)
         百花盛开 عطر漫山。 (Bǎi huā shèng kāi xiāng qì màn shān.) (A hundred flowers bloom, fragrance fills the mountains.)`,
-      },
-      {
-        title: "Vision",
-        description:
-          "ERNIE envisions a world where language transcends its literal meaning, becoming a bridge between information and understanding. It aspires to be a universal translator, not just of languages, but of complexities. It sees a future where language empowers people to learn, create, and connect on a deeper level.",
-        input: `Can you translate this sentence into Chinese: "I would like to order a cup of coffee."`,
-        output: `我想要一杯咖啡。`,
       },
     ],
 
@@ -654,8 +577,11 @@ else:
       " Baidu is the leading internet search engine in China, controlling a vast majority of the search market. It offers various other internet services like cloud computing, online maps, and music streaming. Baidu tailors its services and products to the specific needs of the Chinese market, making them highly relevant to their user base.",
   },
   {
+    views: 100,
     tryout: false,
     id: 9,
+    redirect_link:
+      "https://ai.meta.com/blog/roberta-an-optimized-method-for-pretraining-self-supervised-nlp-systems/",
     model_image:
       "https://bsmedia.business-standard.com/_media/bs/img/article/2023-03/28/full/1679999027-6706.jpg?im=FeatureCrop,size=(826,465)",
     model_name: "RoBERTa",
@@ -677,15 +603,6 @@ else:
         input: `Today, I went hiking in a beautiful national park. The scenery was breathtaking, with towering mountains and crystal-clear lakes. I saw a variety of wildlife, including deer and birds.
         Perform topic modeling of the above passage.`,
         output: `This text likely belongs to the topic of "nature" or "outdoor activities" based on its focus on hiking, scenery, and wildlife.`,
-      },
-      {
-        title: "Vision",
-        description:
-          "RoBERTa envisions a world where language transcends its literal meaning, becoming a bridge of understanding across cultures and communication styles. It aspires to be a universal translator, not just of words, but of intent and emotion. It envisions a future where clear communication paves the way for collaboration, empathy, and a world where the true meaning behind words shines through.",
-        input: `Passage:  Albert Einstein was a theoretical physicist who developed the theory of relativity, one of the two pillars of modern physics (alongside quantum mechanics). His work is also known for its influence on the philosophy of science.
-
-        Question: What was Albert Einstein famous for?`,
-        output: `Based on the passage, Albert Einstein was famous for developing the theory of relativity, a cornerstone of modern physics.`,
       },
     ],
 
@@ -727,8 +644,10 @@ else:
       "Facebook AI is a powerhouse in the AI world.  They delve into fundamental AI research, from language understanding to computer vision.  This translates into real-world applications like better image recognition on Facebook and the development of powerful language models.  While navigating privacy concerns and bias, Facebook AI strives to push the boundaries of AI for both innovation and social good.",
   },
   {
+    views: 100,
     tryout: false,
     id: 10,
+    redirect_link: "https://primo.ai/index.php?title=XLNet",
     model_image:
       "https://www.borealisai.com/wp-content/uploads/2019/07/blog_xlnet.png?resize=1536,864",
     model_name: "XLNet",
@@ -752,17 +671,9 @@ else:
         input: `"The delicious aroma of freshly baked bread filled the air as I walked into the ____."`,
         output: `"bakery"`,
       },
-      {
-        title: "Vision",
-        description:
-          "Imagine a future where AI can analyze text and not just understand the sentence structure, but also the subtle nuances that depend on word order and hidden relationships. As a champion of comprehensive language understanding, XELNet envisions a future where clear and insightful communication paves the way for deeper connections and a world where the full potential of language is unlocked.",
-        input: `A recent study published in Nature explored the potential benefits of green tea consumption for heart health. The researchers found that participants who regularly consumed green tea had a lower risk of developing cardiovascular diseases compared to those who did not drink green tea. The study suggests that green tea's antioxidant properties may play a role in protecting heart health.
-        Perform Text Summarization:.`,
-        output: `"A study suggests regular green tea consumption might be linked to a lower risk of heart disease due to its potential antioxidant properties."`,
-      },
     ],
 
-    code_snippet: `Unfortunately 
+    code_snippet: `
     // Simulate fetching data from a hypothetical XLNet API
 async function fetchXLNetResponse(text) {
   console.log("**Simulation: Fetching XLNet response (assuming a public API existed)...**");

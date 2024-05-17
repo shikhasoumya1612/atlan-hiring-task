@@ -1,0 +1,98 @@
+/* Tryout.css */
+.chat-container {
+  max-width: 60%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.previous-chats {
+  height: 60vh;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.chat-message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+#send-button {
+  border-radius: 0 5px 5px 0;
+}
+
+#clear-button {
+  border-radius: 5px;
+}
+
+.disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.previous-chats::-webkit-scrollbar {
+  width: 7px;
+}
+
+.previous-chats::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+.previous-chats::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: black;
+}
+
+.typing-skeleton {
+  height: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+  .chat-container {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .chat-container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .chat-container {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .chat-container {
+    max-width: 90%;
+  }
+}

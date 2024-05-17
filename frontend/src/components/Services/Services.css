@@ -1,0 +1,25 @@
+.service .text-small {
+  text-align: left;
+}
+
+.service img {
+  width: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+  .service img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .service img {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .service img {
+    width: 150px;
+  }
+}

@@ -4,10 +4,11 @@ import { CiSearch } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 
 const SearchBar = ({ inputValue, setInputValue }) => {
+  //Sets the Input Value
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
-
+  //Clears the search bar
   const clearSearch = () => {
     setInputValue("");
   };
