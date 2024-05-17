@@ -14,7 +14,7 @@ function App() {
   const fetchModels = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/model/all"
+        `${process.env.REACT_APP_BACKEND_URL}/model/all`
       );
 
       setModels(response.data.models);
