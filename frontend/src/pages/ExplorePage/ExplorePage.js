@@ -41,8 +41,9 @@ const ExplorePage = () => {
   const fetchModels = async () => {
     setLoading(true);
     try {
+      console.log(`${process.env.REACT_APP_URL}/model/all`);
       const response = await axios.get(
-        `${process.env.REACT_APP_URL}/api/v1/model/all`
+        `${process.env.REACT_APP_URL}/model/all`
       );
 
       setModels(response.data.models);

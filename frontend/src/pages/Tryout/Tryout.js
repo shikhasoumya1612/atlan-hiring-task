@@ -21,7 +21,7 @@ const Tryout = () => {
     setError(null);
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_URL}/api/v1/model/tryout/${params.id}`
+        `${process.env.REACT_APP_URL}/model/tryout/${params.id}`
       );
 
       if (!response.data.tryout) {

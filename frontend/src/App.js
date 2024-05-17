@@ -12,24 +12,6 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 
 function App() {
-  const [models, setModels] = useState([]);
-
-  const fetchModels = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/model/all`
-      );
-
-      setModels(response.data.models);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchModels();
-  }, []);
-
   return (
     <BrowserRouter>
       <div className="App">

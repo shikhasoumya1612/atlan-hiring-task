@@ -16,7 +16,7 @@ const Home = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_URL}/api/v1/model/all`
+        `${process.env.REACT_APP_URL}/model/all`
       );
       console.log(response);
       setModels(response.data.models);
